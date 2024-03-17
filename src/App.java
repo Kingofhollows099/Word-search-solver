@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+// import java.util.HashMap;
 import java.util.Scanner;
 
 public class App {
@@ -64,22 +65,61 @@ public class App {
 
         //Time to Find words :O
 
+        Result[] results = new Result[wordGoal];
+
         ArrayList<Character> possibleWordStarts = new ArrayList<>();
 
-        for (int currentWorkingWordIndex = 0; currentWorkingWordIndex < wordGoal; currentWorkingWordIndex++) {
+        for (int currentWorkingWordIndex = 0; currentWorkingWordIndex < wordGoal; currentWorkingWordIndex++) { //"For each word"
 
             String currentWorkingWord = words[currentWorkingWordIndex];
-            // char[] spelling = new char[currentWorkingWord.length()];
-
-            // for (int characterNum = 0; characterNum < currentWorkingWord.length(); characterNum++) {
-            //     spelling[characterNum] = currentWorkingWord.charAt(characterNum);
-            // }
             
-            for (int i = 0; i < map.length; i++) {
-                if (map[i].getLetter() == currentWorkingWord.charAt(0)) {
-                    possibleWordStarts.add(map[i]);
+            for (int scanPos = 0; scanPos < map.length; scanPos++) { // for each position in map[]
+                if (map[scanPos].getLetter() == currentWorkingWord.charAt(0)) { //gets each Character with the starting letter of the currentWorkingWord.
+                    possibleWordStarts.add(map[scanPos]);
+                }
+                
+            }
+            // Dimension 1 (Starting pos)
+                // Dimension 2 (Direction)
+                    // Dimension 3 (finish word)
+            for (int i = 0; i < possibleWordStarts.size(); i++) { // for each possible starting position
+                int Y = possibleWordStarts.get(i).getY();
+                int X = possibleWordStarts.get(i).getX();
+                String projectedWord = "";
+
+                //TODO: Make it print out " <insert currentWorkingWord> is too long. please try again" if a word is too big to fit in the graph
+
+                if (X >= currentWorkingWord.length() && Y >= currentWorkingWord.length()) { // Upper left check
+                    for (int wordPosition = 0; wordPosition < currentWorkingWord.length(); wordPosition++) {
+                        
+                        
+                        
+                        projectedWord += "";
+                    }
+                }
+                if (Y >= currentWorkingWord.length() - 1) { //Top middle check
+
+                }
+                if (Y >= currentWorkingWord.length() - 1 && X <= columns - currentWorkingWord.length() - 1) { // Upper right check
+
+                }
+                if (X >= currentWorkingWord.length() - 1) { // Left check
+
+                }
+                if (X <= columns - currentWorkingWord.length() - 1) {// Right check
+                
+                }
+                if (X >= currentWorkingWord.length() - 1 && Y <= rows - currentWorkingWord.length() - 1) { // Lower left check
+
+                }
+                if (Y <= rows - currentWorkingWord.length() - 1) { // Bottom middle check
+
+                }
+                if (X <= columns - currentWorkingWord.length() - 1 && Y <= rows - currentWorkingWord.length() - 1) { // Lower right check
+
                 }
             }
+            possibleWordStarts.clear();
         }
     reader.close();
     }

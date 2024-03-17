@@ -32,5 +32,4 @@ public class Character{
         this.y = y;
         this.letter = letter;
     }
-    
 }
