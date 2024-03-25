@@ -90,15 +90,15 @@ public class App {
                 //TODO: Make it print out " <insert currentWorkingWord> is too long. please try again" if a word is too big to fit in the graph
 
                 if (X >= currentWorkingWord.length() && Y >= currentWorkingWord.length()) { // Upper left check
-                    for (int wordPosition = 0; wordPosition < currentWorkingWord.length(); wordPosition++) {
+                    for (int wordPosition = 1; wordPosition < currentWorkingWord.length(); wordPosition++) {// For each letter in the current working word
                         
                         
                         
                         projectedWord += "";
                     }
                 }
-                if (Y >= currentWorkingWord.length() - 1) { //Top middle check
-
+                if (Y >= currentWorkingWord.length() - 1 ||) { //Top middle check
+                    
                 }
                 if (Y >= currentWorkingWord.length() - 1 && X <= columns - currentWorkingWord.length() - 1) { // Upper right check
 
