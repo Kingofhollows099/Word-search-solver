@@ -1,3 +1,4 @@
+package Tools;
 public class Character{
     char letter;
 

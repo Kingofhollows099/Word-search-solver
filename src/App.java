@@ -2,6 +2,10 @@ import java.util.ArrayList;
 // import java.util.HashMap;
 import java.util.Scanner;
 
+import Tools.Character;
+import Tools.Result;
+import Tools.Utility;
+
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner reader = new Scanner(System.in);
@@ -85,19 +89,13 @@ public class App {
             for (int i = 0; i < possibleWordStarts.size(); i++) { // for each possible starting position
                 int Y = possibleWordStarts.get(i).getY();
                 int X = possibleWordStarts.get(i).getX();
-                String projectedWord = "";
 
                 //TODO: Make it print out " <insert currentWorkingWord> is too long. please try again" if a word is too big to fit in the graph
 
                 if (X >= currentWorkingWord.length() && Y >= currentWorkingWord.length()) { // Upper left check
-                    for (int wordPosition = 1; wordPosition < currentWorkingWord.length(); wordPosition++) {// For each letter in the current working word
-                        
-                        
-                        
-                        projectedWord += "";
-                    }
+
                 }
-                if (Y >= currentWorkingWord.length() - 1 ||) { //Top middle check
+                if (Y >= currentWorkingWord.length() - 1) { //Top middle check
                     
                 }
                 if (Y >= currentWorkingWord.length() - 1 && X <= columns - currentWorkingWord.length() - 1) { // Upper right check
