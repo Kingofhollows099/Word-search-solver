@@ -1,10 +1,9 @@
 package Tools;
-import App;
-public class Utility {
+public static class Utility {
     
     public static Character searchForCharacter(int targetX, int targetY) {
-        for (int spot = 0; spot <  ; spot++ ) {
-            
+        for (int spot = 0; spot < App.totalChars ; spot++ ) {
+
         }
     }
     public static Boolean searchForWord(int startX, int startY, String Word, int direction) {
