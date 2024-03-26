@@ -18,7 +18,7 @@ public class App {
 
         int totalChars = columns * rows;
 
-        static Character[] map = new Character[totalChars];
+        Character[] map = new Character[totalChars];
 
         int xLoc = 0;
         int yLoc = 0;
