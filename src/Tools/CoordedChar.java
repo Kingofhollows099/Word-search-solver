@@ -1,5 +1,5 @@
 package Tools;
-public class Character{
+public class CoordedChar{
     char letter;
 
     public char getLetter() {
@@ -28,7 +28,7 @@ public class Character{
         this.y = y;
     }
 
-    public Character(int x,int y, char letter) {
+    public CoordedChar(int x,int y, char letter) {
         this.x = x;
         this.y = y;
         this.letter = letter;
