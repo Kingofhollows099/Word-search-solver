@@ -1,3 +1,9 @@
+//TODO: add an explanation on how the grid works.
+//TODO: Add checkpoints along the grid
+//TODO: Allow one to change words
+//TODO: Add word # markers when it prints out.
+//TODO: Add ability to use an image???
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
