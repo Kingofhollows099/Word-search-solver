@@ -16,7 +16,7 @@ public class Utility {
     }
 
     public static boolean searchForWord(int startX, int startY, String word, int direction, CoordedChar[] array) {
-        for (int whereAmI = 1; whereAmI <= word.length(); whereAmI++) {
+        for (int whereAmI = 1; whereAmI < word.length(); whereAmI++) {
             //remember, only one of these will run when the method is called.
             switch (direction) {
                 default:
@@ -89,7 +89,7 @@ public class Utility {
  /*
   * Check if input is _____
   */
-    public static boolean checkIfIsNum (String input) { //A number
+    public static boolean checkIfIsNum (String input) { // A number
         if (input == "") {
             return false;
         }

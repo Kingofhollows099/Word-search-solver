@@ -1,4 +1,5 @@
 package Tools;
+
 public class CoordedChar{
     char letter;
 
