@@ -171,4 +171,10 @@ public class Utility {
         // reader.close();
         return output;
     }
+    public static String capitalizeString(String input) {
+        char array[] = input.toCharArray();
+        array[0] = String.valueOf(array[0]).toUpperCase().charAt(0);
+        String output = String.valueOf(array);
+        return output;
+    }
 }

@@ -73,29 +73,29 @@ public class App {
             for (int i = 0; i < possibleWordStarts.size(); i++) { // for each possible starting position
                 int Y = possibleWordStarts.get(i).getY();
                 int X = possibleWordStarts.get(i).getX();
-                String strX = Integer.toString(X);
-                String strY = Integer.toString(Y);
-                String strXM1 = Integer.toString(X-1);
-                String strYM1 = Integer.toString(Y-1);
-                String strXP1 = Integer.toString(X + 1);
-                String strYP1 = Integer.toString(Y + 1);
+                String strX = Integer.toString(X + 1);
+                String strY = Integer.toString(Y + 1);
+                String strXM1 = Integer.toString(X);
+                String strYM1 = Integer.toString(Y);
+                String strXP1 = Integer.toString(X + 2);
+                String strYP1 = Integer.toString(Y + 2);
 
-                if (X >= currentWorkingWord.length() && Y >= currentWorkingWord.length()) { // Upper left check
+                if (X + 1 >= currentWorkingWord.length() && Y + 1 >= currentWorkingWord.length()) { // Upper left check
                     if (Utility.searchForWord(X, Y, currentWorkingWord, 0, map)) {
                         results[currentWorkingWordIndex] = new Result("(" + strX + ", " + strY + ")", "(" + strXM1 + ", " +  strYM1 + ")", currentWorkingWord);
                     }
                 }
-                if (Y >= currentWorkingWord.length()) { //Top middle check
+                if (Y + 1 >= currentWorkingWord.length()) { //Top middle check
                     if (Utility.searchForWord(X, Y, currentWorkingWord, 1, map)) {
                         results[currentWorkingWordIndex] = new Result("(" + strX + ", " + strY + ")", "(" + strX + ", " +  strYM1 + ")", currentWorkingWord);
                     }
                 }
-                if (Y >= currentWorkingWord.length() && X <= columns - currentWorkingWord.length()) { // Upper right check
+                if (Y + 1 >= currentWorkingWord.length() && X <= columns - currentWorkingWord.length()) { // Upper right check
                     if (Utility.searchForWord(X, Y, currentWorkingWord, 2, map)) {
                         results[currentWorkingWordIndex] = new Result("(" + strX + ", " + strY + ")", "(" + strXP1 + ", " +  strYM1 + ")", currentWorkingWord);
                     }
                 }
-                if (X >= currentWorkingWord.length()) { // Left check
+                if (X + 1 >= currentWorkingWord.length()) { // Left check
                     if (Utility.searchForWord(X, Y, currentWorkingWord, 7, map)) {
                         results[currentWorkingWordIndex] = new Result("(" + strX + ", " + strY + ")", "(" + strXM1 + ", " +  strY + ")", currentWorkingWord);
                     }
@@ -105,7 +105,7 @@ public class App {
                         results[currentWorkingWordIndex] = new Result("(" + strX + ", " + strY + ")", "(" + strXP1 + ", " +  strY + ")", currentWorkingWord);
                     }
                 }
-                if (X >= currentWorkingWord.length() && Y <= rows - currentWorkingWord.length()) { // Lower left check
+                if (X + 1 >= currentWorkingWord.length() && Y <= rows - currentWorkingWord.length()) { // Lower left check
                     if (Utility.searchForWord(X, Y, currentWorkingWord, 6, map)) {
                         results[currentWorkingWordIndex] = new Result("(" + strX + ", " + strY + ")", "(" + strXM1 + ", " +  strYP1 + ")", currentWorkingWord);
                     }
@@ -124,12 +124,13 @@ public class App {
             possibleWordStarts.clear();
         }
         //finally, time to print results.
+        System.out.println("\n\u001B[46m~~~ Results ~~~ \u001B[0m");
         for (int numOfResults = 0; numOfResults < results.length; numOfResults++) {
             if (results[numOfResults] == null) {
             System.out.println("Sorry, we couldent find \u001B[31m" + words[numOfResults] + "\u001B[37m in the grid.");
             }
             else {
-            System.out.println(results[numOfResults].getWord() + " starts at " + results[numOfResults].getPosition1() + " and goes toward " + results[numOfResults].getPosition2() + ".");
+            System.out.println("\u001B[32m" + Utility.capitalizeString(results[numOfResults].getWord()) + "\u001B[37m starts at \u001B[36m" + results[numOfResults].getPosition1() + "\u001B[37m and goes toward \u001B[36m" + results[numOfResults].getPosition2() + "\u001B[37m.");
             }
         }  
     }  
