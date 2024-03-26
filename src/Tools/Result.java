@@ -1,4 +1,5 @@
 package Tools;
+
 public class Result {
     String position1;
     String position2;
