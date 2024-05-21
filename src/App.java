@@ -1,7 +1,6 @@
 //TODO: add an explanation on how the grid works.
 //TODO: Add checkpoints along the grid
 //TODO: Allow one to change words
-//TODO: Add word # markers when it prints out.
 //TODO: Add ability to use an image???
 
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner reader = new Scanner(System.in);
 
+        System.out.println("Welcome! Enter \"/Help\" at any time to bring up the help page");
 
         System.out.println("Please enter the # of Columns");
         int columns = Utility.recieveEnsuredNumber(reader);
@@ -50,11 +50,12 @@ public class App {
         int wordGoal = Utility.recieveEnsuredNumber(reader);
         
         String[] words = new String[wordGoal];
+        
 
         for (int wordCount = 0; wordCount < wordGoal; wordCount++) {
             System.out.println("What is word #" + Integer.toString(wordCount + 1) + "? ");
 
-            words[wordCount] = Utility.recieveEnsuredWord(columns, rows, reader);
+            words[wordCount] = Utility.recieveEnsuredWord(columns, rows, reader, words);
         }
 
         //Time to Find words :O
@@ -132,11 +133,12 @@ public class App {
         //finally, time to print results.
         System.out.println("\n\u001B[46m~~~ Results ~~~ \u001B[0m");
         for (int numOfResults = 0; numOfResults < results.length; numOfResults++) {
+
             if (results[numOfResults] == null) {
-            System.out.println("Sorry, we couldent find \u001B[31m" + words[numOfResults] + "\u001B[37m in the grid.");
+            System.out.println(String.valueOf(numOfResults + 1) + ": Sorry, we couldent find \u001B[31m" + words[numOfResults] + "\u001B[37m in the grid.");
             }
             else {
-            System.out.println("\u001B[32m" + Utility.capitalizeString(results[numOfResults].getWord()) + "\u001B[37m starts at \u001B[36m" + results[numOfResults].getPosition1() + "\u001B[37m and goes toward \u001B[36m" + results[numOfResults].getPosition2() + "\u001B[37m.");
+            System.out.println(String.valueOf(numOfResults + 1) + ": \u001B[32m" + Utility.capitalizeString(results[numOfResults].getWord()) + "\u001B[37m starts at \u001B[36m" + results[numOfResults].getPosition1() + "\u001B[37m and goes toward \u001B[36m" + results[numOfResults].getPosition2() + "\u001B[37m.");
             }
         }  
     }  
